@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,12 +11,12 @@ public enum VoxelState { Dead, Alive }
 
 
 
-public class Voxel 
+public class Voxel
 {
     private Vector3Int _index;
     private GameObject _goVoxel;
     private VoxelState _status = VoxelState.Alive;
-    
+
 
     //here use getters and setters   to  execute when you get variable    advantage of using get and set is that we can add some side effects.
     public VoxelState Status     //try to access the information that is inside status, it will run the code below 
@@ -27,18 +28,37 @@ public class Voxel
         set
         {
             _goVoxel.SetActive(value == VoxelState.Alive);
-            _status = value; 
+            _status = value;
         }
     }
 
 
 
-    public Voxel (Vector3Int index, GameObject goVoxelPrefab)
+    public Voxel(Vector3Int index, GameObject goVoxelPrefab)
     {
         _index = index;
         _goVoxel = GameObject.Instantiate(goVoxelPrefab, _index, Quaternion.identity);  //Quaternion add rotation
         _goVoxel.GetComponent<VoxelTrigger>().TriggerVoxel = this;
     }
-        
+
+
+
+
+    //reappear
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        StartCoroutine(HideAndShow(_goVoxel, 5.0f));
+    }
+
+    IEnumerator HideAndShow ( GameObject go, float delay)
+    {
+        go.SetActive(true);
+        yield  return new WaitForSeconds(delay);
+        go.SetActive(false);
+
+    }
+
 }
 

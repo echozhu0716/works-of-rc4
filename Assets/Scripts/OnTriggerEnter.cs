@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VoxelTrigger : MonoBehaviour
+internal class OnTriggerEnter : MonoBehaviour
 {
+
     public Voxel TriggerVoxel;
 }
-
