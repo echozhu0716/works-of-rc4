@@ -19,8 +19,6 @@ public class voxelgrids : MonoBehaviour
 
         /*dog barry = new dog("Barry", "My dog");
         dog eddie = new dog("Eddie", "His dog");
-
-
         barry.Bark(6);
         eddie.Bark(2);*/
 
@@ -67,19 +65,26 @@ public class voxelgrids : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         //then let the ray hit sth
-        if(Physics.Raycast(ray,out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
 
             // transform-everyobject has a transform to get them in space
 
-           Transform objectHit = hit.transform;
+            Transform objectHit = hit.transform;
 
             if (objectHit.CompareTag("Voxel"))
             {
                 // Destroy(objectHit.gameObject);
                 objectHit.gameObject.GetComponent<VoxelTrigger>().TriggerVoxel.Status = VoxelState.Dead;
+                objectHit.gameObject.GetComponent<OnTriggerEnter>();
+
+
+
+
 
             }
+
+
         }
 
         }
@@ -88,5 +93,6 @@ public class voxelgrids : MonoBehaviour
     
 
 }
+
 
 
