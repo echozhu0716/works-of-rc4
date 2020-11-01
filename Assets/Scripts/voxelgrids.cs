@@ -77,7 +77,21 @@ public class voxelgrids : MonoBehaviour
             if (objectHit.CompareTag("Voxel"))
             {
                 // Destroy(objectHit.gameObject);
-                objectHit.gameObject.GetComponent<VoxelTrigger>().TriggerVoxel.Status = VoxelState.Dead;
+                StartCoroutine(Dead());
+            }
+
+            IEnumerator Dead()
+            {
+                objectHit.gameObject.SetActive(false);
+                yield return new WaitForSeconds(5);
+                objectHit.gameObject.SetActive(true );
+
+            }
+              
+                    
+                    
+                    
+                    // objectHit.gameObject.GetComponent<VoxelTrigger>().TriggerVoxel.Status = VoxelState.Dead;
 
             }
         }
