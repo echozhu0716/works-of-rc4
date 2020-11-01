@@ -12,10 +12,29 @@ public class voxelgrids : MonoBehaviour
 
 
     // Start is called before the first frame update
+
+
     void Start()
     {
+
+
         _goVoxelPrefab = Resources.Load("prefabs/VoxelCube") as GameObject;
+
+
+
+
         CreatevoxelGrids();
+
+        // _goVoxelPrefab = Random.ColorHSV() ;
+
+
+
+
+
+
+
+
+
 
         /*dog barry = new dog("Barry", "My dog");
         dog eddie = new dog("Eddie", "His dog");
@@ -46,21 +65,21 @@ public class voxelgrids : MonoBehaviour
     }
 
 
-        // Update is called once per frame
+    // Update is called once per frame
 
-        void Update()
+    void Update()
+    {
+        if (Input.GetMouseButton(0))
         {
-            if (Input.GetMouseButton(0))
-            {
-                HandleRaycast();
-            }
-
+            HandleRaycast();
         }
 
+    }
 
-        private void HandleRaycast()
-        {
-            Debug.Log("Clicked");
+
+    private void HandleRaycast()
+    {
+        Debug.Log("Clicked");
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -74,23 +93,38 @@ public class voxelgrids : MonoBehaviour
 
             if (objectHit.CompareTag("Voxel"))
             {
-                // Destroy(objectHit.gameObject);
-                objectHit.gameObject.GetComponent<VoxelTrigger>().TriggerVoxel.Status = VoxelState.Dead;
-                objectHit.gameObject.GetComponent<OnTriggerEnter>();
-
-
-
-
+                //Destroy(objectHit.gameObject);
+                StartCoroutine(Dead());
+            }
+            IEnumerator Dead()
+            {
+                objectHit.gameObject.SetActive(false);
+                yield return new WaitForSeconds(5);
+                objectHit.gameObject.SetActive(true);
 
             }
 
 
-        }
-
-        }
 
 
+            // objectHit.gameObject.GetComponent<VoxelTrigger>().TriggerVoxel.Status = VoxelState.Dead;
     
+
+
+
+
+
+        }
+
+
+
+
+
+    }
+
+
+
+
 
 }
 

@@ -42,23 +42,5 @@ public class Voxel
     }
 
 
-
-
-    //reappear
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        StartCoroutine(HideAndShow(_goVoxel, 5.0f));
-    }
-
-    IEnumerator HideAndShow ( GameObject go, float delay)
-    {
-        go.SetActive(true);
-        yield  return new WaitForSeconds(delay);
-        go.SetActive(false);
-
-    }
-
 }
 

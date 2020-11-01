@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 498368171995704001}
   - component: {fileID: 1772199114210296127}
   - component: {fileID: 2835673057481040413}
+  - component: {fileID: 2798842507568111264}
   m_Layer: 0
   m_Name: VoxelCube
   m_TagString: Voxel
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dcc11b98fbf45984ab3fdce66e3e6e21, type: 2}
+  - {fileID: 2100000, guid: 121622295345111489f7ea0d086bafba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,5 +107,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a84b8f0e002cb7047a77e63fb7436ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2798842507568111264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481062344003022784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f3c60d51b39ff46970eadb6bca851a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
